@@ -48,3 +48,18 @@ input[type=number] {
     top: 25px;
     right: 25px;
 }
+
+#dashboard-menu{
+    position: fixed;
+    height: 100%;
+}
+
+@media screen and (max-wdith: 992px){
+    #dashboard-menu{
+        width: 100%;
+        height: auto;
+    }
+    #main-content{
+        margin-top: 60px;
+    }
+}
