@@ -41,7 +41,7 @@
                 <!-- General Settings modal -->
                 <div class="modal fade" id="general-s" data-bs-backdrop="static" data-bs-keyboard="true" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        <form>
+                        <form id="general_s_form">
                             <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">General Settings</h5>
@@ -49,11 +49,11 @@
                             <div class="modal-body">
                             <div class="mb-3">
                                     <label class="form-label">Site Title</label>
-                                    <input type="text" name="site_title" id="site_title_inp" class="form-control shadow-none">
+                                    <input type="text" name="site_title" id="site_title_inp" class="form-control shadow-none" required>
                             </div>
                             <div class="mb-3">
                                     <label class="form-label">About us</label>
-                                    <input type="text" name="site_about" id="site_about_inp" class="form-control shadow-none">
+                                    <input type="text" name="site_about" id="site_about_inp" class="form-control shadow-none" required>
                             </div>
                             </div>
                             <div class="modal-footer">
@@ -69,7 +69,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between">
-                            <h5 class="card-title m-0">General Settings</h5>
+                            <h5 class="card-title m-0">Shutdown</h5>
                             <div class="form-check form-switch">
                                 <form>
                                     <input onchange="upd_shutdown(this.value)" type="checkbox" class="form-check-input" id="shutdown-toggle">
@@ -89,12 +89,13 @@
     <script>
         let general_data;
 
+        let general_s_form = document.getElementById('general_s_form');
+        let site_title_inp = document.getElementById('site_title_inp');
+        let site_about_inp = document.getElementById('site_about_inp');
+
         function get_general(){
             let site_title = document.getElementById('site_title');
             let site_about = document.getElementById('site_about');
-
-            let site_title_inp = document.getElementById('site_title_inp');
-            let site_about_inp = document.getElementById('site_about_inp');
 
             let shutdown_toggle = document.getElementById('shutdown-toggle');
 
@@ -123,6 +124,11 @@
             xhr.send('get_general');
         }
 
+        general_s_form.addEventListener('submit',function(e){
+            e.preventDefault();
+            upd_general(site_title_inp.value,site_about_inp.value);
+        })
+
         function upd_general(site_title_val,site_about_val){
             let xhr = new XMLHttpRequest();
             xhr.open("POST","ajax/settings_crud.php",true);
@@ -134,7 +140,7 @@
                 var modal = bootstrap.Modal.getInstance(myModal);
                 modal.hide();
 
-                if(this.reponseText == 0){
+                if(this.reponseText == 1){
                     alert('success','Changes saved!');
                     get_general();
                 }else{
