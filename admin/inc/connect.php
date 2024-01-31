@@ -1,7 +1,7 @@
 <?php
     $hname = 'localhost';
     $uname = 'root';
-    $pass = '12345';
+    $pass = '';
     $db = 'hotel';
 
     $con = mysqli_connect($hname,$uname,$pass,$db);

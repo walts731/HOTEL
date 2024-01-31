@@ -13,11 +13,6 @@
 </head>
 <body class="bg-light">
     
-    <div class="container-fluid bg-dark text-light p-3 d-flex align items-center justify-content-between sticky-top">
-        <h3 class="mb-0 h-font">WALTON'S WEBSITE</h3>
-        <a href="logout.php" class="btn btn-light btn-sm">LOG OUT</a>
-    </div>
-
     <?php require('inc/header.php'); ?>
 
     <div class="container-fluid" id="main-content">
@@ -219,7 +214,6 @@
                         </div>
                         
                         <div class="row" id="team-data">
-                            
                         </div>
                     </div>
                 </div>

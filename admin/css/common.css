@@ -55,10 +55,10 @@ input[type=number] {
     z-index: 11;
 }
 
-@media screen and (max-wdith: 992px){
+@media screen and (max-width: 991px){
     #dashboard-menu{
-        width: 100%;
         height: auto;
+        width: 100%;
     }
     #main-content{
         margin-top: 60px;
