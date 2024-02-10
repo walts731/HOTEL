@@ -7,7 +7,7 @@
     define('CAROUSEL_IMG_PATH',SITE_URL.'images/carousel/');
 
     //backend upload process needs this data
-
+    define('ABOUT_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/HOTEL/images/');
     define('CAROUSEL_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/HOTEL/images/');
     define('ABOUT_FOLDER', 'about/');
     define('CAROUSEL_FOLDER', 'carousel/');

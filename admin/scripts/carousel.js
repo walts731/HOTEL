@@ -9,7 +9,7 @@ carousel_s_form.addEventListener('submit',function(e){
 
 function add_image(){
     let data = new FormData();
-    data.append('picture',member_picture_inp.files[0]);
+    data.append('picture',carousel_picture_inp.files[0]);
     data.append('add_image','');
 
     let xhr = new XMLHttpRequest();
@@ -29,7 +29,7 @@ function add_image(){
             alert('error','Image upload failed. Server Down!');
         }else{
             alert('success','New image added!');
-            member_picture_inp.value = '';
+            carousel_picture_inp.value = '';
             get_carousel();
         }
     }
@@ -57,7 +57,7 @@ function rem_image(val){
     xhr.onload = function(){
         if(this.responseText==1){
             alert('success','Image removed!');
-            get_members();
+            get_carousel();
         }else{
             ('error','$server down!');
         }
